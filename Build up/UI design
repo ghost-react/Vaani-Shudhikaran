@@ -1,0 +1,97 @@
+
+# UI Design Specification: Vaani Shudhikaran
+
+## 1. The Visual System (The "Dharmic Tech" Vibe)
+
+* **Palette:**
+    * **Background (Pitch Black):** `#000000` or a very deep slate `#0A0A0A`.
+    * **Primary Accent (Golden Yellow):** `#FBBF24` (Tailwind `amber-400`) for main glow/text.
+    * **Subtle Accent (Dull Gold):** `#B45309` (Tailwind `amber-700`) for less active borders/icons.
+    * **Neutral (Off-White):** `#F9FAFB` (Tailwind `gray-50`) for the actual text content.
+* **Typography:**
+    * **Header/Title:** A elegant Serif (e.g., **Playfair Display** or **Merriweather**) in `FBBF24` (Golden Yellow).
+    * **UI/Input/Output:** A clean, legible Monospace (e.g., **JetBrains Mono** or **Roboto Mono**) or Modern Sans-serif (e.g., **Inter**) in `F9FAFB` (Off-White).
+
+---
+
+## 2. Component Design (Golden Glow & Pitch Black)
+
+### A. Main Container
+* **Style:** Pitch Black background, full-screen (`min-h-screen`). Minimalist layout.
+* **Heading:** Centered at the top: `Vaani Shudhikaran` in Playfair Display (Golden Yellow).
+
+### B. The Text Boxes (Input & Output)
+Both text boxes share this base styling but have distinct interaction states.
+
+* **Base Style:**
+    * Background: A slightly lighter shade than the main background (e.g., `#111111`).
+    * Border: Subtle, thin border in `#374151` (Tailwind `gray-700`).
+    * Radius: Minimal (`rounded-md`).
+    * Text: Mono font, Off-White (`#F9FAFB`).
+* **Hover State:**
+    * Border changes to a dull gold (`#B45309`).
+    * Cursor changes to a text pointer.
+* **Focus/Selected State (The Glow):**
+    * Border changes to bright Golden Yellow (`#FBBF24`).
+    * Add a subtle `box-shadow` (Outer Glow) using the Golden Yellow:
+        * `box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);`
+    * Transition speed: Smooth, `150ms ease-in-out`.
+
+### C. The Central "Shudhikaran" Button
+* **Style:**
+    * Background: Pure Pitch Black.
+    * Border: Thick, bright Golden Yellow (`#FBBF24`).
+    * Text: Bold, uppercase `SHUDDHIKARAN` in Golden Yellow.
+* **Interaction:**
+    * On Hover: Fill the background with Golden Yellow, text flips to Pitch Black. Subtle inner glow.
+
+---
+
+## 3. Interaction & Animation Logic (The "Tearing" Sequence)
+
+This is the core of your request. Here is how you can technically achieve the "tearing input to reveal output" effect using **Tailwind CSS** and **Framer Motion** (as suggested in the tech stack).
+
+### The Layout Structure for Animation
+
+You cannot *actually* "tear" text, but you can create a seamless visual illusion using overlapping layers.
+
+```jsx
+// Simplified Layout Concept (to visualize)
+<div className="relative w-full h-full">
+  {/* LAYER 1: The 'Final Purified' Text (Hidden initially) */}
+  <div className="absolute inset-0 z-0 text-off-white">
+    {purifiedOutputText}
+  </div>
+
+  {/* LAYER 2: The 'Raw' Input Text (Visible initially, this gets torn) */}
+  <motion.div
+    className="absolute inset-0 z-10 text-off-white bg-pitch-black"
+    animate={tearingAnimationStatus}
+  >
+    {rawInputText}
+    {/* Visual Tearing Overlay (A diagonal mask) */}
+  </motion.div>
+</div>
+```
+
+### The Animation Sequence Steps (triggered by clicking "Shudhikaran")
+
+1.  **Phase 1: Input "Commit"**
+    * The user inputs their "Hinglish/Marathi-English" into the left box.
+    * Upon clicking "Shudhikaran," the left box "locks" (disables input).
+2.  **Phase 2: The Tearing Canvas**
+    * Instead of animating the *Input Box*, you **copy** the text from the Input Box and render it into a special **Animation Canvas** on the right side of the screen (where the output goes).
+    * This copy of the raw text initially fills the right-side box.
+3.  **Phase 3: The "Tear" Illusion**
+    * We use a Framer Motion component with a **clip-path mask**.
+    * We will animate a jagged, "ripping" shape diagonally across this text.
+    * *The Illusion:* The jagged mask moves, hiding the raw text, simultaneously revealing the "Final Purified" text which is layered *directly underneath it*.
+4.  **Phase 4: Golden Remnant (Optional but Cool)**
+    * As the jagged line moves across the text, the *very edge* of the rip has a brief, intense Golden Yellow highlight, as if the raw text is being purified by light.
+
+### Technically Implementing the Tear (in Antigravity/Framer Motion)
+
+You can use a standard `motion.div` and animate its `clip-path` property. The jagged shape is defined by a polygon path.
+
+*Prompt to use in Antigravity to generate this specific effect:*
+> *"Create a React component named `TearingTextReveal`. It takes `rawInput` and `purifiedOutput` as props. Use Framer Motion. Layer the `purifiedOutput` (gold text) underneath the `rawInput` (white text). Upon trigger, animate a jagged diagonal clip-path mask over the `rawInput` text, moving from the top-left to bottom-right, revealing the gold text underneath, simulating a paper-tearing effect. Add a golden border effect to the tear edge."*

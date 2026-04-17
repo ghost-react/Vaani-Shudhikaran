@@ -1,0 +1,102 @@
+
+
+# PRD: Vaani Shudhikaran (Project VS)
+
+## 1. Product Vision
+**Vaani Shudhikaran** is a web-based "communication filter" designed for individuals who experience high-volume intrusive thoughts or social friction. It serves as a bridge between raw, impulsive internal dialogue and refined, professional external communication, allowing users to express their core intent without the risk of being misunderstood or sounding unprofessional.
+
+## 2. Target Audience
+* Students and early-career professionals (who feel they haven't "earned" the right to be unfiltered).
+* People prone to "intrusive thoughts" who need a safe space to vent before communicating.
+* Non-native English speakers looking to polish their "Hinglish" or informal thoughts into corporate-standard English.
+
+## 3. Core Features (MVP)
+### A. The "Shuddhi" Engine (AI Logic)
+* **Raw Input Processing:** Accepts informal, angry, or disorganized text.
+* **Intent Extraction:** Identifies the "point" the user is trying to make.
+* **Persona Mapping:** Rewrites text based on three distinct levels:
+    * **Sahaj (Simple):** Polite, clear, and everyday professional.
+    * **Uttam (Refined):** Academic, structured, and highly articulate.
+    * **Rajsi (Executive):** High-level leadership tone, concise, and authoritative.
+
+### B. The "Visarjan" (Disposal) Mechanism
+* A "Burn after reading" feature. Once the thought is purified, the raw input is permanently deleted from the session to provide psychological catharsis.
+
+### C. One-Click "Nevermind"
+* If the AI detects the thought is purely toxic/non-constructive, it suggests a "Graceful Exit" phrase (e.g., "I'll give this some more thought and get back to you") instead of a direct translation.
+
+## 4. Technical Stack
+* **Frontend:** Next.js (App Router) + Tailwind CSS.
+* **AI Integration:** Gemini 1.5 Flash (via Google AI Studio API) for speed and cost-effectiveness.
+* **Deployment:** Vercel.
+* **IDE:** Google Antigravity (for agentic development).
+
+## 5. User Interface (UI) Design
+* **Theme:** Minimalist, "Zen" aesthetic (Deep grays, soft whites, and subtle gold accents).
+* **Layout:** * **Top:** Project Name (Vaani Shudhikaran) in a clean serif font.
+    * **Left Panel:** "Raw Vaani" (Text area).
+    * **Center:** "Shudhikaran" Button (with a loading animation like a ripple or incense smoke).
+    * **Right Panel:** "Purified Vaani" (Read-only text area with 'Copy to Clipboard').
+
+## 6. Success Metrics
+* **Clarity Score:** User feels the output accurately represents their intent.
+* **Speed:** Translation occurs in under 2 seconds.
+* **Utility:** The user successfully uses the output in a real-life conversation/email.
+
+---
+
+### Implementation Roadmap
+1.  **Phase 1:** Setup Next.js environment in Antigravity.
+2.  **Phase 2:** Connect Gemini API and test the "Shuddhi" system prompts.
+3.  **Phase 3:** Build the UI components (Input, Output, Persona Toggles).
+4.  **Phase 4:** Add the "Visarjan" (Delete) and "Copy" functionality.
+
+
+
+
+
+
+Integrating **multilingual support**—specifically Hinglish and Marathi-English—is what will make **Vaani Shudhikaran** a truly localized powerhouse. In Maharashtra and across India, we often think in a mix of languages, and the "intrusive" part of the thought usually comes out in our mother tongue.
+
+Here is the updated **Multilingual Section**:
+
+---
+
+### **New Feature: The "Bhasha-Sangam" Logic**
+The system will no longer just "translate"; it will **decode code-switching**. Whether you vent in pure Marathi, Hindi, or a mix like *"Boss ne bohot load diya hai, mala he nahi karaycha,"* the engine will understand the underlying frustration.
+
+#### **1. Input Capabilities**
+* **Hinglish:** (e.g., *"Meeting bohot bekar thi, time waste ho gaya."*)
+* **Marathi-English:** (e.g., *"Project madhe khup issues aahet, mala thoda break pahije."*)
+* **Native-to-Global:** Direct processing of any Indian regional language combined with English syntax.
+
+#### **2. Updated "Shuddhi" Engine Requirements**
+* **Automatic Language Detection:** The AI must detect the base language(s) without the user needing to select a "From" language.
+* **Cultural Nuance Mapping:** The engine must recognize culturally specific "intrusive" slang or idioms and convert them into the equivalent professional English idiom.
+    * *Raw:* "He kaam majhya dokyavarun jatay."
+    * *Purified:* "This task is currently exceeding my current technical bandwidth."
+
+---
+
+### **Updated Technical Implementation (For Antigravity)**
+
+When you prompt your agent in Antigravity to build the backend, use this logic for the **System Prompt**:
+
+```markdown
+"You are Vaani Shudhikaran, a multilingual communications expert. 
+The user will provide input in English, Hinglish, Marathi-English, 
+or other Indian regional mixes. 
+
+Your workflow:
+1. Identify the core frustration or intent in the native phrasing.
+2. Filter out the 'intrusive' or unprofessional elements.
+3. Output the 'Purified' version in high-standard Global English.
+4. If requested, provide a version in 'Standard Formal Hindi' or 'Shuddha Marathi' 
+   for formal local communication."
+```
+
+### **Revised UI Component: The "Bhasha" Toggle**
+Instead of just "Persona," we add a **"Target Vaani"** selector:
+1.  **Global Corporate:** Pure, high-level English (for LinkedIn/MNCs).
+2.  **Sarkari/Official:** Formal Hindi/Marathi (for local administration or traditional settings).
+3.  **Modern Indian Professional:** Polished English that retains a subtle Indian professional warmth.

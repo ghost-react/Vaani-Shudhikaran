@@ -1,0 +1,41 @@
+
+
+### **The "Vaani Shudhikaran" Tech Stack**
+
+#### **1. Frontend: Next.js 14/15 (App Router)**
+* **Why:** It’s the industry standard. It handles Server-Side Rendering (SSR) for speed and has built-in API routes so you don't need a separate backend server.
+* **Library:** **React.js** for the UI logic.
+
+#### **2. Styling: Tailwind CSS + Framer Motion**
+* **Tailwind:** For rapid UI development (vibe coding friendly).
+* **Framer Motion:** This is crucial for the "Shudhikaran" feel. You want the text to "fade in" or "flow" like incense smoke when it’s being purified.
+
+#### **3. Backend & AI: Google AI Studio (Gemini 1.5 Flash)**
+* **Model:** **Gemini 1.5 Flash** is better than Pro for this because it’s incredibly fast and cheaper/free for this scale.
+* **SDK:** `@google/generative-ai` (The official Node.js wrapper).
+* **Multilingual Support:** Gemini natively handles Marathi, Hindi, and Hinglish without needing extra libraries.
+
+#### **4. State Management: React Context API or Zustand**
+* **Why:** You need to manage the state of the "Raw Vaani" (input) and the "Purified Vaani" (output) across the screen. **Zustand** is very lightweight and perfect for "vibe coding."
+
+#### **5. Deployment & Hosting: Vercel**
+* **Why:** Since you already used it for your Resume Builder, keep everything in one place. It offers seamless "Git-to-Deploy" which works perfectly with Antigravity’s workflow.
+
+---
+
+### **System Requirements & API Architecture**
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Language Detection** | Gemini 1.5 Flash | Automatically identifies Marathi/Hindi/Hinglish. |
+| **API Layer** | Next.js Route Handlers | Securely calls the Google AI API without exposing your key. |
+| **Clipboard** | `navigator.clipboard` API | One-click copy for the "Purified" text. |
+| **Persistence** | LocalStorage | (Optional) To save a history of "Purified" thoughts locally on your browser. |
+
+---
+
+### **Antigravity Execution Plan**
+
+When you open **Antigravity** to start the project, use this exact technical prompt to set up the foundation:
+
+> *"Initialize a Next.js project using Tailwind CSS and Lucide React for icons. Create a central API route `/api/purify` that uses the Google Generative AI SDK. The UI should be a split-pane layout: 'Raw Input' on the left and 'Purified Output' on the right. Add a 'Shudhikaran' button in the center. Ensure the theme is 'Dark Mode' with a minimalist, Zen-like aesthetic using subtle gold borders."*
