@@ -1,4 +1,4 @@
-# Vaani Shudhikaran ✨🕉️
+# Vaani Shudhikaran 
 
 **Vaani Shudhikaran** is a native Indian language processing and purification application. It is designed to take raw inputs in various languages (like English, Hinglish, Marathi, Hindi, etc.) and naturally process, enrich, or "purify" them using AI, presenting the output in an elegant, interactive UI.
 
